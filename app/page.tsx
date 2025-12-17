@@ -1,9 +1,16 @@
-import { PenTool, Palette, Monitor, ArrowRight, CheckCircle2, Star, Zap, Search, Rocket, TrendingUp, ShieldCheck, Clock, ChevronDown, Plus } from "lucide-react";
+import { PenTool, Palette, Monitor, ArrowRight, CheckCircle2, Star, Zap, Search, Rocket, TrendingUp, ShieldCheck, Clock, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import HeroBackground from "@/components/hero-background";
+import { CtaBackgroundEffect } from "@/components/cta-background-effect";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ServiceCard } from "@/components/ui/service-card";
 import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Home() {
   return (
@@ -224,26 +231,39 @@ export default function Home() {
       </section>
 
       {/* New: FAQ Section */}
-      <section className="py-24 px-4 bg-[#0a0a0a] border-t border-white/5">
-        <div className="container mx-auto max-w-4xl">
+      <section className="py-24 px-4 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-[#D4AF37]/5 blur-[120px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#D4AF37]/5 blur-[100px] rounded-full" />
+        </div>
+
+        <div className="container mx-auto max-w-3xl relative z-10">
           <SectionHeading title="Frequently Asked Questions" subtitle="Common questions about our services and process." />
 
-          <div className="space-y-4 mt-12">
-            {[
-              { q: "What is your typical turnaround time?", a: "Most branding projects take 2-4 weeks, while full web design projects can take 4-8 weeks depending on complexity." },
-              { q: "Do you offer ongoing support?", a: "Yes! We offer monthly retainer packages for design, maintenance, and content updates." },
-              { q: "What industries do you specialize in?", a: "We have extensive experience in Tech, Luxury Retail, Real Estate, and Startups." }
-            ].map((faq, i) => (
-              <div key={i} className="group border border-white/10 rounded-2xl bg-white/5 overflow-hidden">
-                <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
-                  <span className="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">{faq.q}</span>
-                  <Plus className="text-[#D4AF37]" />
-                </summary>
-                <div className="px-6 pb-6 text-gray-400">
-                  {faq.a}
-                </div>
-              </div>
-            ))}
+          <div className="mt-12">
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {[
+                { q: "What is your typical turnaround time?", a: "Most branding projects take 2-4 weeks, while full web design projects can take 4-8 weeks depending on complexity. We prioritise quality and ensure every detail is perfect." },
+                { q: "Do you offer ongoing support?", a: "Yes! We offer monthly retainer packages that include design updates, technical maintenance, and content changes to keep your digital presence fresh and secure." },
+                { q: "What industries do you specialize in?", a: "We have extensive experience in Tech, Luxury Retail, Real Estate, and Startups. However, our strategic approach applies effectively to any ambitious brand looking to scale." },
+                { q: "What is your payment process?", a: "We typically require a 50% deposit to secure your slot in our calendar, with the remaining 50% due upon project completion and your full satisfaction." },
+                { q: "Can you rush a project?", a: "Rush projects are possible depending on our current workload. These will incur an additional rush fee to prioritize your deliverables without compromising quality." }
+              ].map((faq, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`item-${i}`}
+                  className="bg-zinc-900/50 border border-white/10 rounded-2xl px-6 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-zinc-900/80 data-[state=open]:border-[#D4AF37] data-[state=open]:bg-zinc-900 data-[state=open]:shadow-[0_0_20px_rgba(212,175,55,0.1)]"
+                >
+                  <AccordionTrigger className="text-lg font-bold text-white hover:text-[#D4AF37] hover:no-underline py-6 [&[data-state=open]]:text-[#D4AF37]">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-400 text-base leading-relaxed pb-6 animate-in fade-in slide-in-from-top-2">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
@@ -295,8 +315,9 @@ export default function Home() {
       </section>
 
       {/* CTA Section (Gold Background) */}
-      <section className="py-20 px-4 bg-gradient-to-r from-[#D4AF37] to-[#C5A028] text-black">
-        <div className="container mx-auto max-w-5xl text-center">
+      <section className="relative overflow-hidden py-20 px-4 bg-gradient-to-r from-[#D4AF37] to-[#C5A028] text-black">
+        <CtaBackgroundEffect />
+        <div className="container relative mx-auto max-w-5xl text-center z-10">
           <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tighter">Ready to Dominate Your Market?</h2>
           <p className="text-xl md:text-2xl font-medium mb-10 max-w-2xl mx-auto opacity-90">Stop blending in. It's time to stand out with a brand identity that commands attention.</p>
           <Link href="#contact" className="inline-block bg-black text-white px-12 py-5 rounded-full text-xl font-bold hover:scale-105 hover:shadow-2xl transition-all">

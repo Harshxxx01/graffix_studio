@@ -1,4 +1,4 @@
-import { SectionHeading } from "@/components/ui/section-heading";
+import { PageHeader } from "@/components/page-header";
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -41,16 +41,24 @@ const projects = [
   },
 ];
 
+import { CtaBackgroundEffect } from "@/components/cta-background-effect";
+
 export default function WorkPage() {
   return (
-    <div className="min-h-screen bg-black pt-24 pb-20">
-      <div className="container mx-auto px-4">
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
-          <SectionHeading
-            title="Selected Work"
-            subtitle="A showcase of our most impactful projects."
-          />
+    <div className="min-h-screen bg-black">
+      <section className="relative overflow-hidden pt-32 pb-20">
+        <CtaBackgroundEffect />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <PageHeader
+              title="Selected Work"
+              subtitle="A showcase of our most impactful projects."
+            />
+          </div>
         </div>
+      </section>
+
+      <div className="container mx-auto px-4 pb-20">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {projects.map((project, index) => (
@@ -73,6 +81,18 @@ export default function WorkPage() {
           ))}
         </div>
       </div>
-    </div>
+
+      {/* Work CTA */}
+      <section className="py-24 border-t border-white/5 bg-[#050505] text-center">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <PageHeader title="Have a Project in Mind?" subtitle="We'd love to add your success story to our portfolio." centered={true} />
+          <div className="mt-12">
+            <Link href="/contact" className="inline-block px-10 py-5 bg-[#D4AF37] text-black font-bold rounded-full text-xl hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+              Get in Touch
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div >
   );
 }
