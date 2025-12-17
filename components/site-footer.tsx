@@ -98,18 +98,18 @@ export function SiteFooter() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="bg-black text-white rounded-2xl p-8 mb-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="max-w-md">
-            <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-            <p className="text-gray-400">Subscribe to our newsletter for the latest news and insights</p>
+        <div className="bg-black text-white rounded-2xl p-8 mb-12 flex flex-col lg:flex-row items-center justify-between gap-8 border border-white/10">
+          <div className="max-w-md text-center lg:text-left">
+            <h3 className="text-2xl font-bold mb-2 text-[#D4AF37]">Stay Updated</h3>
+            <p className="text-gray-400">Subscribe to our newsletter for the latest news and insights.</p>
           </div>
-          <div className="flex-1 w-full max-w-md flex gap-2">
+          <div className="flex-1 w-full max-w-md flex flex-col md:flex-row gap-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 bg-white/10 border-white/10 text-white placeholder:text-gray-500 rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="flex-1 bg-white/5 border border-white/10 text-white placeholder:text-gray-500 rounded-xl px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all"
             />
-            <button className="bg-[#D4AF37] text-black font-semibold px-6 py-3 rounded-lg hover:bg-white transition-colors">
+            <button className="bg-[#D4AF37] text-black font-bold px-8 py-4 rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)]">
               Subscribe
             </button>
           </div>
