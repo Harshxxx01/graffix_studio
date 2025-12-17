@@ -63,7 +63,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200 backdrop-blur-xl" >
               <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

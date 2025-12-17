@@ -78,20 +78,20 @@ export function SiteFooter() {
                   <MapPin size={18} />
                 </div>
                 <span className="text-gray-900">
-                  99, Sri Ram Nagar, Narasimhanaickenpalayam, Coimbatore 641031, India
+                  Vilankurichi, Coimbatore, India
                 </span>
               </li>
               <li className="flex gap-4 items-center">
                 <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center shrink-0">
                   <Phone size={18} />
                 </div>
-                <span className="text-gray-900">+91 9344 853 263</span>
+                <span className="text-gray-900">+91 123456789</span>
               </li>
               <li className="flex gap-4 items-center">
                 <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center shrink-0">
                   <Mail size={18} />
                 </div>
-                <span className="text-gray-900">innovoidlabs@gmail.com</span>
+                <span className="text-gray-900">info@graffixstudio.com</span>
               </li>
             </ul>
           </div>
