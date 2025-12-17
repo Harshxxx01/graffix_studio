@@ -105,11 +105,12 @@ export function SiteFooter() {
           </div>
           <div className="flex-1 w-full max-w-md flex flex-col md:flex-row gap-4">
             <input
+              suppressHydrationWarning
               type="email"
               placeholder="Enter your email"
               className="flex-1 bg-white/5 border border-white/10 text-white placeholder:text-gray-500 rounded-xl px-6 py-4 focus:outline-none focus:border-[#D4AF37] transition-all"
             />
-            <button className="bg-[#D4AF37] text-black font-bold px-8 py-4 rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+            <button suppressHydrationWarning className="bg-[#D4AF37] text-black font-bold px-8 py-4 rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(212,175,55,0.2)]">
               Subscribe
             </button>
           </div>

@@ -69,17 +69,17 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-400">Name</label>
-                    <input id="name" type="text" className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" placeholder="John Doe" required />
+                    <input suppressHydrationWarning id="name" type="text" className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" placeholder="John Doe" required />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-gray-400">Email</label>
-                    <input id="email" type="email" className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" placeholder="john@example.com" required />
+                    <input suppressHydrationWarning id="email" type="email" className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all" placeholder="john@example.com" required />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium text-gray-400">Subject</label>
-                  <select id="subject" className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all appearance-none">
+                  <select suppressHydrationWarning id="subject" className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all appearance-none">
                     <option>General Inquiry</option>
                     <option>Project Proposal</option>
                     <option>Career</option>
@@ -89,10 +89,10 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium text-gray-400">Message</label>
-                  <textarea id="message" rows={5} className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all resize-y" placeholder="Tell us about your project..." required></textarea>
+                  <textarea suppressHydrationWarning id="message" rows={5} className="w-full rounded-xl px-4 py-3 bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all resize-y" placeholder="Tell us about your project..." required></textarea>
                 </div>
 
-                <button type="submit" className="w-full rounded-xl py-4 bg-[#D4AF37] hover:bg-[#F4C430] text-black font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 transform hover:translate-y-[-2px]">
+                <button suppressHydrationWarning type="submit" className="w-full rounded-xl py-4 bg-[#D4AF37] hover:bg-[#F4C430] text-black font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2 transform hover:translate-y-[-2px]">
                   Send Message <Send size={18} />
                 </button>
               </form>

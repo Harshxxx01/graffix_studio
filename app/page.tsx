@@ -1,5 +1,6 @@
 import { PenTool, Palette, Monitor, ArrowRight, CheckCircle2, Star, Zap, Search, Rocket, TrendingUp, ShieldCheck, Clock, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import HeroBackground from "@/components/hero-background";
 import { CtaBackgroundEffect } from "@/components/cta-background-effect";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -11,6 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { TestimonialCarousel } from "@/components/testimonial-carousel";
 
 export default function Home() {
   return (
@@ -200,32 +202,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-24 px-4 bg-black relative">
+      {/* Testimonials Section (Carousel) */}
+      <section className="py-24 px-4 bg-black relative border-t border-white/5">
         <div className="container mx-auto max-w-7xl">
-          <SectionHeading title="Client Stories" subtitle="Don't just take our word for it." />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {[
-              { name: "Sarah J.", role: "CEO, TechFlow", text: "Graffix Studio transformed our outdated brand into something truly world-class. The attention to detail is unmatched." },
-              { name: "Michael R.", role: "Founder, Zenith", text: "The team understood our vision perfectly. The new web design has increased our conversion rate by 40%." },
-              { name: "Elena V.", role: "Marketing Dir, Aura", text: "Professional, creative, and timely. They delivered a comprehensive brand identity that we are proud of." }
-            ].map((t, i) => (
-              <div key={i} className="bg-[#111] border border-white/5 p-8 rounded-2xl hover:border-[#D4AF37] transition-all hover:bg-[#151515]">
-                <div className="flex gap-1 text-[#D4AF37] mb-6">
-                  {[1, 2, 3, 4, 5].map(star => <Star key={star} size={18} fill="currentColor" strokeWidth={0} />)}
-                </div>
-                <p className="text-lg text-gray-300 italic mb-8 leading-relaxed">"{t.text}"</p>
-                <div className="flex items-center gap-4 pt-6 border-t border-white/5">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#D4AF37] to-black border border-[#D4AF37] flex items-center justify-center text-black font-bold text-xl">
-                    {t.name.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-bold text-white text-lg">{t.name}</p>
-                    <p className="text-sm text-[#D4AF37] font-medium">{t.role}</p>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Testimonial Carousel */}
+            <div>
+              <SectionHeading title="Client Stories" subtitle="Don't just take our word for it." />
+
+              <TestimonialCarousel />
+            </div>
+
+            {/* Right: Image/Visual */}
+            <div className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-white/10 group">
+              <Image
+                src="/client.jpg"
+                alt="Client Satisfaction"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* Visual Element Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="absolute w-48 h-48 rounded-full bg-black/60 blur-[40px]" />
+                <div className="relative z-20 p-8 text-center backdrop-blur-sm bg-black/30 rounded-full border border-white/10">
+                  <h3 className="text-4xl font-black text-white mb-2 tracking-tighter">100%</h3>
+                  <p className="text-[#D4AF37] uppercase tracking-widest text-sm font-bold">Client Satisfaction</p>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -255,7 +260,7 @@ export default function Home() {
                   value={`item-${i}`}
                   className="bg-zinc-900/50 border border-white/10 rounded-2xl px-6 transition-all duration-300 hover:border-[#D4AF37]/50 hover:bg-zinc-900/80 data-[state=open]:border-[#D4AF37] data-[state=open]:bg-zinc-900 data-[state=open]:shadow-[0_0_20px_rgba(212,175,55,0.1)]"
                 >
-                  <AccordionTrigger className="text-lg font-bold text-white hover:text-[#D4AF37] hover:no-underline py-6 [&[data-state=open]]:text-[#D4AF37]">
+                  <AccordionTrigger suppressHydrationWarning className="text-lg font-bold text-white hover:text-[#D4AF37] hover:no-underline py-6 [&[data-state=open]]:text-[#D4AF37]">
                     {faq.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-400 text-base leading-relaxed pb-6 animate-in fade-in slide-in-from-top-2">
@@ -275,13 +280,20 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 lg:order-1">
               <div className="absolute -inset-4 bg-[#D4AF37]/20 blur-xl rounded-2xl -z-10" />
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#111] to-black border border-[#D4AF37]/30 p-8 flex items-center justify-center relative overflow-hidden group">
-                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10" />
-                <div className="absolute inset-0 border-[1px] border-[#D4AF37]/20 m-4 rounded-xl" />
-                <span className="text-[12rem] text-[#D4AF37] font-black opacity-10 group-hover:opacity-20 transition-opacity duration-700 select-none">GS</span>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className="text-6xl font-black text-white mb-2">Since</span>
-                  <span className="text-8xl font-black text-[#D4AF37]">2020</span>
+              <div className="aspect-square rounded-2xl border border-[#D4AF37]/30 p-2 relative overflow-hidden group">
+                <div className="relative w-full h-full rounded-xl overflow-hidden">
+                  <Image
+                    src="/abt.jpg"
+                    alt="About Graffix Studio"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
+
+                  <div className="absolute bottom-6 left-6 text-left">
+                    <span className="text-5xl font-black text-white block mb-1">Since</span>
+                    <span className="text-7xl font-black text-[#D4AF37]">2020</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -339,6 +351,7 @@ export default function Home() {
               <div className="space-y-2">
                 <label className="text-sm font-bold text-[#D4AF37] uppercase tracking-wider">Name</label>
                 <input
+                  suppressHydrationWarning
                   className="w-full rounded-xl px-4 py-4 bg-[#111] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all"
                   type="text"
                   placeholder="John Doe"
@@ -348,6 +361,7 @@ export default function Home() {
               <div className="space-y-2">
                 <label className="text-sm font-bold text-[#D4AF37] uppercase tracking-wider">Email</label>
                 <input
+                  suppressHydrationWarning
                   className="w-full rounded-xl px-4 py-4 bg-[#111] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all"
                   type="email"
                   placeholder="john@example.com"
@@ -359,6 +373,7 @@ export default function Home() {
             <div className="space-y-2">
               <label className="text-sm font-bold text-[#D4AF37] uppercase tracking-wider">Message</label>
               <textarea
+                suppressHydrationWarning
                 className="w-full rounded-xl px-4 py-4 bg-[#111] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-all min-h-[150px] resize-y"
                 placeholder="Tell us about your project..."
                 required
@@ -366,6 +381,7 @@ export default function Home() {
             </div>
 
             <button
+              suppressHydrationWarning
               type="submit"
               className="mt-6 w-full rounded-xl py-5 text-xl font-black uppercase tracking-widest bg-[#D4AF37] hover:bg-[#F4C430] text-black shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all transform hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(212,175,55,0.6)]"
             >
